@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IPlayer } from '../player.model';
+import { IPlayer } from '../model/player.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PalyerService } from '../palyer.service';
 
@@ -18,9 +18,11 @@ export class PalyerDetailComponent implements OnInit {
 
   ngOnInit() {
     const param = this.route.snapshot.paramMap.get('id');
-    if (param) {
-      this.player = this.palyerService.getPalyer(+param);
-    }
+    this.palyerService.getPalyer(+param).subscribe(
+      response => {
+        this.player = response;
+      }
+    );
   }
 
   onBackClick() : void {

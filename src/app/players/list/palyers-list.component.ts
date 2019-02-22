@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IPlayer } from '../player.model';
+import { IPlayer } from '../model/player.model';
 import { PalyerService } from '../palyer.service';
+import { IResponseMeta } from '../model/response-meta.model';
 
 @Component({
   selector: 'app-palyers-list',
@@ -11,11 +12,17 @@ export class PalyersListComponent implements OnInit {
 
   title = 'Players catalog';
   playersList : IPlayer[];
+  responseMeta : IResponseMeta;
 
   constructor(private palyerService : PalyerService) { }
 
   ngOnInit() {
-    this.playersList = this.palyerService.getListPalyers();
+    this.palyerService.getListPalyers().subscribe(
+      response => {
+        this.playersList = response.data;
+        this.responseMeta = response.meta;
+      }
+    );
   }
 
 }
