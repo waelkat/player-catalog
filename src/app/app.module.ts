@@ -3,10 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PalyersListComponent } from './players/list/palyers-list.component';
+import { PalyerItemComponent } from './players/item/palyer-item.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PalyersListComponent,
+    PalyerItemComponent
   ],
   imports: [
     BrowserModule,
