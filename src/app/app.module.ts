@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PalyersListComponent } from './players/list/palyers-list.component';
 import { PalyerItemComponent } from './players/item/palyer-item.component';
+import { PalyerDetailComponent } from './players/detail/palyer-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PalyersListComponent,
-    PalyerItemComponent
+    PalyerItemComponent,
+    PalyerDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -4,8 +4,14 @@
     border-radius: 5px;
 }
 
+@media (max-width: 768px){
+    .item-container{
+        margin: 0 15px 0 15px;
+    }
+}
+
 .hoverwell:hover {
-    background-color: #d4d8db;
+    background-color: #d6d9db;
     cursor: pointer;
     border-radius: 5px;
-  }
+}

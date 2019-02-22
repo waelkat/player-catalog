@@ -1,0 +1,29 @@
+<div>
+    <div class="row">
+      <div class="col-md-11">
+        <h2>{{player.first_name + ' ' + player.last_name}}</h2>
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-md-6">
+        <div><strong>ID :</strong> {{player.id}}</div>
+        <div><strong>Position :</strong> {{player.position}}</div>
+        <fieldset>
+          <legend>Team</legend>
+            <div><strong>Name :</strong> {{player.team.name}}</div>
+            <div><strong>Full name :</strong> {{player.team.full_name}}</div>
+            <div><strong>City:</strong> {{player.team.city}}</div>
+        </fieldset>
+      </div>
+    </div>
+    
+    <div class='row'>
+      <div class="col-md-6 offset-md-4">
+          <button class='btn btn-outline-secondary'
+                  (click)='onBackClick()'>
+                   List of players
+          </button>
+      </div>
+    </div>
+</div>

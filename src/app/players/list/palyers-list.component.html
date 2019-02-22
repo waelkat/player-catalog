@@ -5,6 +5,8 @@
 </div>
 <div class="row">
   <div *ngFor='let player of playersList' class="col-md-5 offset-md-1 col-sm-12">
-      <app-palyer-item [player]='player'></app-palyer-item>
+      <a [routerLink]="['/player', player.id]">
+        <app-palyer-item [player]='player'></app-palyer-item>
+      </a>
   </div>
 </div>
