@@ -1,0 +1,46 @@
+<div class="row" *ngIf='serviceResponseMeta'>
+    <div class="col-sm-3">
+        <label class="data-count-label"> Show : </label>
+        <select class="custom-select custom-select-sm page-size" (change)="pageSizeChange($event)">
+          <option *ngFor="let option of pageSizeSelectOptions" value={{option.value}} [selected]="option.selected">
+            {{option.label}}
+          </option>
+        </select>
+    </div>
+    <div class="col-sm-8 offset-sm-1">
+        <ul class="pagination">
+            <li class="page-item" [ngClass]="{'disabled': serviceResponseMeta.current_page == 1}">
+              <a class="page-link" [routerLink]="['/list']" [queryParams]="{ page: 1 }">
+                <span aria-hidden="true">&#124;&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item" [ngClass]="{'disabled': serviceResponseMeta.current_page == 1}">
+              <a class="page-link" [routerLink]="['/list']" [queryParams]="{ page: serviceResponseMeta.current_page - 1 }">
+                <span>&laquo;</span>
+              </a>
+            </li>
+            <li *ngFor="let pageNum of paginationPages" [ngClass]="{'active': pageNum.selected}" class="page-item">
+              <a class="page-link" [routerLink]="['/list']" [queryParams]="{ page: pageNum.value }">
+                {{pageNum.value}}
+              </a>
+            </li>
+            <li class="page-item">
+              <select class="custom-select custom-select-sm page-number" (change)="pageNumberChange($event)">
+                  <option *ngFor="let option of pageNumberSelectOptions" value={{option.value}} [selected]="option.selected">
+                    {{option.label}}
+                  </option>
+              </select>
+            </li>
+            <li class="page-item" [ngClass]="{'disabled': serviceResponseMeta.next_page == null}">
+              <a class="page-link" [routerLink]="['/list']" [queryParams]="{ page: serviceResponseMeta.current_page + 1}">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+            <li class="page-item" [ngClass]="{'disabled': serviceResponseMeta.next_page == null}">
+              <a class="page-link" [routerLink]="['/list']" [queryParams]="{ page: serviceResponseMeta.total_pages}">
+                <span aria-hidden="true">&raquo;&#124;</span>
+              </a>
+            </li>
+          </ul>
+    </div>
+</div>

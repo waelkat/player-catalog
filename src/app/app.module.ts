@@ -5,15 +5,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PalyersListComponent } from './players/list/palyers-list.component';
-import { PalyerItemComponent } from './players/item/palyer-item.component';
 import { PalyerDetailComponent } from './players/detail/palyer-detail.component';
+import { PlayersPaginationComponent } from './players/pagination/players-pagination.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PalyersListComponent,
-    PalyerItemComponent,
-    PalyerDetailComponent
+    PalyerDetailComponent,
+    PlayersPaginationComponent
   ],
   imports: [
     BrowserModule,

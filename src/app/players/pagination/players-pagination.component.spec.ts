@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PalyerItemComponent } from './palyer-item.component';
+import { PlayersPaginationComponent } from './players-pagination.component';
 
-describe('PalyerItemComponent', () => {
-  let component: PalyerItemComponent;
-  let fixture: ComponentFixture<PalyerItemComponent>;
+describe('PlayersPaginationComponent', () => {
+  let component: PlayersPaginationComponent;
+  let fixture: ComponentFixture<PlayersPaginationComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PalyerItemComponent ]
+      declarations: [ PlayersPaginationComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PalyerItemComponent);
+    fixture = TestBed.createComponent(PlayersPaginationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

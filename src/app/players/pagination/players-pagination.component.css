@@ -1,0 +1,13 @@
+.custom-select {
+    width: initial;
+}
+
+.page-number {
+    height: 38px;
+    border-left: none;
+    border-radius: 0;
+}
+
+.data-count-label {
+    margin-right: 10px;
+}
