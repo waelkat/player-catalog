@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class PlayersPaginationComponent implements OnInit, OnChanges {
 
   @Input() serviceResponseMeta : IResponseMeta;
+  @Input() searchQuery : string;
 
   pageSizeSelectOptions : any[] = [];
   pageNumberSelectOptions : any[] = [];
@@ -38,11 +39,15 @@ export class PlayersPaginationComponent implements OnInit, OnChanges {
     return this.getQueryParam(pageIndex, this.serviceResponseMeta.per_page);
   }
 
-  getQueryParam (pageIndex, pageSize) {
-    return {
-        page : pageIndex,
-        per_page : pageSize
-      }
+  getQueryParam (pageIndex, pageSize) { 
+    let queryParam = {
+      page : pageIndex,
+      per_page : pageSize
+    }
+    if(this.searchQuery){
+      queryParam['search'] = this.searchQuery;
+    }
+    return queryParam;
   }
 
   getQueryParamObj (pageIndex, pageSize) {

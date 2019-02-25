@@ -19,16 +19,23 @@ export class PalyerService {
 
   getListPalyers(page : number, perPage? : number, search? : string) : Observable<IServiceResponse> {
     let url : string = APIUrl.listPlayersURL;
-    if(search){
-      url += "?search=" + search;
-    }else {
-      if(page){
-        url += "?page=" + page;
-      }
-      if(perPage){
-        url += "&per_page=" + perPage;
-      }
+    let queryParam = [];
+
+    if(page){
+      queryParam.push("page=" + page);
+      url += "?page=" + page;
     }
+    if(perPage){
+      queryParam.push("per_page=" + perPage);
+    }
+    if(search){
+      queryParam.push("search=" + search);
+    }
+
+    if(queryParam.length > 0){
+      url += "?" + queryParam.join("&");
+    }
+
     return this.httpService.get<IServiceResponse>(url);
   }
 }

@@ -4,7 +4,7 @@
   </h1>
 </div>
 <div>
-  <app-players-filter [searchQuery]="searchQuery"></app-players-filter>
+  <app-players-filter [serviceResponseMeta]="responseMeta" [searchQuery]="searchQuery"></app-players-filter>
 </div>
 
 <div *ngIf="playersList?.length > 0">
@@ -25,7 +25,7 @@
       </tbody>
     </table>
     <div>
-        <app-players-pagination [serviceResponseMeta]="responseMeta"></app-players-pagination>
+        <app-players-pagination [serviceResponseMeta]="responseMeta" [searchQuery]="searchQuery"></app-players-pagination>
     </div>
 </div>
 

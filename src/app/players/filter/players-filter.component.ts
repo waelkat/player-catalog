@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { IResponseMeta } from '../model/response-meta.model';
 
 @Component({
   selector: 'app-players-filter',
@@ -9,6 +10,7 @@ import { Router } from '@angular/router';
 export class PlayersFilterComponent {
 
   @Input() searchQuery :string = "";
+  @Input() serviceResponseMeta : IResponseMeta;
 
   constructor(private router : Router) { }
 
@@ -18,7 +20,17 @@ export class PlayersFilterComponent {
 
   set filterValue(value: string) {
     this.searchQuery = value;
-    this.router.navigate(['/list'], {queryParams : {search : value}});
+    this.router.navigate(['/list'], this.getQueryParam(value));
+  }
+
+  private getQueryParam(searchQuery : string) {
+    return {
+      queryParams : {
+        page : 1,
+        per_page : this.serviceResponseMeta.per_page,
+        search : searchQuery
+      }
+    }
   }
 
 }
