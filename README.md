@@ -11,4 +11,4 @@ Run :
 
 ## Other dependency
 
-This project use the Public API `https://www.balldontlie.io/#introduction` to retrieve data.
+This project use the Public API `https://www.balldontlie.io/` to retrieve data.

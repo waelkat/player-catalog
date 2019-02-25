@@ -10,17 +10,17 @@
     <div class="col-sm-8 offset-sm-1">
         <ul class="pagination">
             <li class="page-item" [ngClass]="{'disabled': serviceResponseMeta.current_page == 1}">
-              <a class="page-link" [routerLink]="['/list']" [queryParams]="{ page: 1 }">
+              <a class="page-link" [routerLink]="['/list']" [queryParams]="getPageQueryParam(1)">
                 <span aria-hidden="true">&#124;&laquo;</span>
               </a>
             </li>
             <li class="page-item" [ngClass]="{'disabled': serviceResponseMeta.current_page == 1}">
-              <a class="page-link" [routerLink]="['/list']" [queryParams]="{ page: serviceResponseMeta.current_page - 1 }">
+              <a class="page-link" [routerLink]="['/list']" [queryParams]="getPageQueryParam(serviceResponseMeta.current_page - 1)">
                 <span>&laquo;</span>
               </a>
             </li>
             <li *ngFor="let pageNum of paginationPages" [ngClass]="{'active': pageNum.selected}" class="page-item">
-              <a class="page-link" [routerLink]="['/list']" [queryParams]="{ page: pageNum.value }">
+              <a class="page-link" [routerLink]="['/list']" [queryParams]="getPageQueryParam(pageNum.value)">
                 {{pageNum.value}}
               </a>
             </li>
@@ -32,12 +32,12 @@
               </select>
             </li>
             <li class="page-item" [ngClass]="{'disabled': serviceResponseMeta.next_page == null}">
-              <a class="page-link" [routerLink]="['/list']" [queryParams]="{ page: serviceResponseMeta.current_page + 1}">
+              <a class="page-link" [routerLink]="['/list']" [queryParams]="getPageQueryParam(serviceResponseMeta.current_page + 1)">
                 <span aria-hidden="true">&raquo;</span>
               </a>
             </li>
             <li class="page-item" [ngClass]="{'disabled': serviceResponseMeta.next_page == null}">
-              <a class="page-link" [routerLink]="['/list']" [queryParams]="{ page: serviceResponseMeta.total_pages}">
+              <a class="page-link" [routerLink]="['/list']" [queryParams]="getPageQueryParam(serviceResponseMeta.total_pages)">
                 <span aria-hidden="true">&raquo;&#124;</span>
               </a>
             </li>
