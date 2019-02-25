@@ -27,7 +27,7 @@ export class PlayersPaginationComponent implements OnInit, OnChanges {
   }
 
   pageSizeChange(event) : void {
-    this.router.navigate(['/list'], this.getQueryParamObj(this.serviceResponseMeta.current_page, event.target.value));
+    this.router.navigate(['/list'], this.getQueryParamObj(1, event.target.value));
   }
 
   pageNumberChange(event) : void {
