@@ -14,6 +14,7 @@ export class PalyersListComponent implements OnInit {
   title = 'Players catalog';
   playersList : IPlayer[];
   responseMeta : IResponseMeta;
+  searchQuery : string;
 
   constructor(private palyerService : PalyerService,
                private router: Router, 
@@ -25,8 +26,10 @@ export class PalyersListComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       var pageID = params['page'];
       var perPage = params['per_page'];
+      var search = params['search'];
+      this.searchQuery = search;
       
-      this.palyerService.getListPalyers(pageID, perPage).subscribe(
+      this.palyerService.getListPalyers(pageID, perPage, search).subscribe(
         response => {
           this.playersList = response.data;
           this.responseMeta = response.meta;

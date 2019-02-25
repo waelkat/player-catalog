@@ -17,13 +17,17 @@ export class PalyerService {
     return this.httpService.get<IPlayer>(APIUrl.specificPlayerURL + id);
   }
 
-  getListPalyers(page : number, perPage? : number) : Observable<IServiceResponse> {
+  getListPalyers(page : number, perPage? : number, search? : string) : Observable<IServiceResponse> {
     let url : string = APIUrl.listPlayersURL;
-    if(page){
-      url += "?page=" + page;
-    }
-    if(perPage){
-      url += "&per_page=" + perPage;
+    if(search){
+      url += "?search=" + search;
+    }else {
+      if(page){
+        url += "?page=" + page;
+      }
+      if(perPage){
+        url += "&per_page=" + perPage;
+      }
     }
     return this.httpService.get<IServiceResponse>(url);
   }

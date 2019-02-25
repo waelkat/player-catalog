@@ -3,22 +3,32 @@
     {{ title }}
   </h1>
 </div>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First name</th>
-      <th scope="col">Last name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor='let player of playersList' (click)="tableRowClicked(player)">
-      <th scope="row">{{player.id}}</th>
-      <td>{{player.first_name}}</td>
-      <td>{{player.last_name}}</td>
-    </tr>
-  </tbody>
-</table>
 <div>
-  <app-players-pagination [serviceResponseMeta]="responseMeta"></app-players-pagination>
+  <app-players-filter [searchQuery]="searchQuery"></app-players-filter>
+</div>
+
+<div *ngIf="playersList?.length > 0">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">First name</th>
+          <th scope="col">Last name</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor='let player of playersList' (click)="tableRowClicked(player)">
+          <th scope="row">{{player.id}}</th>
+          <td>{{player.first_name}}</td>
+          <td>{{player.last_name}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+        <app-players-pagination [serviceResponseMeta]="responseMeta"></app-players-pagination>
+    </div>
+</div>
+
+<div *ngIf="playersList?.length == 0">
+  No player was found
 </div>
